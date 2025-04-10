@@ -65,13 +65,21 @@ const Calculator = () => {
   };
 
    // Renders a row of buttons
-   const renderButtonRow = (buttons: { title: string; type: string; onPress: () => void }[]) => (
+  const renderButtonRow = (buttons: { title: string; type: string; onPress: () => void }[]) => (
     buttons.map((btn, index) => (
       <Button key={index} title={btn.title} type={btn.type as "top" | "right" | "number"} onPress={btn.onPress} />
     ))
   );
+
+  // Main render function for the calculator component
+  // It displays the calculator layout, including the display and buttons.
+  // The buttons are arranged in rows and columns for easy access.
+  // The display shows the current value and the operator selected.
+  // The buttons are interactive and trigger the appropriate functions when pressed.
+  // The layout is responsive and adjusts to different screen sizes.
   return (
     <View style={styles.container}>
+      
       {/* Display Section */}
       <View style={styles.display}>
         <Text style={styles.historyText}>{firstValue + operator}</Text>
