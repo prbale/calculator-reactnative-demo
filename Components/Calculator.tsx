@@ -23,7 +23,7 @@ const Calculator = () => {
   // Handles operator input
   // Stores the operator and the first operand.
   const handleOperatorInput = (operator: string) => {
-    setOperator(operator);
+    setOperator(operator || ""); // Ensure that operator is always a string
     setFirstValue(displayValue);
     setDisplayValue("0");
   };
@@ -82,7 +82,9 @@ const Calculator = () => {
       
       {/* Display Section */}
       <View style={styles.display}>
-        <Text style={styles.historyText}>{firstValue + operator}</Text>
+        <Text style={styles.historyText}>
+          {firstValue + (operator || "")}
+          </Text>
         <Text style={styles.displayText}>{displayValue}</Text>
       </View>
 
